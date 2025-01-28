@@ -27,7 +27,7 @@ describe('Pruebas de los controladores de los usuarios', () => {
     describe('Pueba POST / User', ()=>{
         it('Deberia crear un usuario correctamente', async()=>{
             const res = await supertest(app).post('/usuarios').send(testUser)
-            expect(res.statusCode).tobe(201);
+            expect(res.statusCode).toBe(201);
         });
 
         it('Deberia crear un error si falta un campo obligatrio', async()=>{
@@ -37,10 +37,10 @@ describe('Pruebas de los controladores de los usuarios', () => {
     });
 
     //2.1 Defino Bloque de Pruebas Para peticion GET
-    describe('Pueba POST / User', ()=>{
+    describe('Pueba GET / User', ()=>{
         it('Deberia indicar que no hay usuarios almacenados', async()=>{
             const res = await supertest(app).get('/usuarios')
-            expect(res.statusCode).tobe(200);
+            expect(res.statusCode).toBe(200);
             expect(res.body).toHaveProperty('mensaje', 'No hay usuarios almacenados');
         });
     });
